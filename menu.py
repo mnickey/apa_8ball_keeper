@@ -17,25 +17,29 @@ def menu():
     print("Add a [P]layer (to a team)")
     print("[R]emove a player from a team")
     print("[U]date a players skill level")
+    print("Review [M]enu again")
     print("E[X]it")
 
 
 def menu_input():
-    menu_choice = input("Selection: ").lower()
-    print("you selected {}.".format(menu_choice))
+    menu_choice = None
     while menu_choice != 'x':
+        menu_choice = input("Selection: ").lower()
         if menu_choice == 't':
             print("entering team addition phase")
-            break  # instead of a break we'll call the next set of functions
+            # instead of a break we'll call the next set of functions
         elif menu_choice == 'p':
             print("entering player addition phase")
-            break  # instead of a break we'll call the next set of functions
+            # instead of a break we'll call the next set of functions
         elif menu_choice == 'r':
             print("entering player removal phase")
-            break  # instead of a break we'll call the next set of functions
+            # instead of a break we'll call the next set of functions
         elif menu_choice == 'u':
             print("entering player skill level update phase")
-            break  # instead of a break we'll call the next set of functions
+            # instead of a break we'll call the next set of functions
+        elif menu_choice == 'm':
+            print("entering menu review phase")
+            menu()
         else:
             print("No valid selection given, please try again.")
     print("Exiting...")
