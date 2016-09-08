@@ -1,3 +1,6 @@
+from teams import Team
+
+
 def main():
     print_header()
     menu()
@@ -17,7 +20,7 @@ def menu():
     print("Add a [P]layer (to a team)")
     print("[R]emove a player from a team")
     print("[U]date a players skill level")
-    print("Review [M]enu again")
+    print("Review [M]enu choices")
     print("E[X]it")
 
 
@@ -27,6 +30,11 @@ def menu_input():
         menu_choice = input("Selection: ").lower()
         if menu_choice == 't':
             print("entering team addition phase")
+            team_name = input("What is the team name? ")
+            team_num = input("What is the team number? ")
+            add_team = Team(team_num, team_name)
+            print(add_team.__repr__())
+            #TODO the objects are being created, now store them somewhere
             # instead of a break we'll call the next set of functions
         elif menu_choice == 'p':
             print("entering player addition phase")
