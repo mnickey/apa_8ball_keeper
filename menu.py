@@ -25,15 +25,16 @@ def menu():
 
 
 def menu_input():
-    menu_choice = None
-    while menu_choice != 'x':
+    menu_choice = ''
+    while menu_choice.lower() != 'x':
         menu_choice = input("Selection: ").lower()
         if menu_choice == 't':
             print("entering team addition phase")
             team_name = input("What is the team name? ")
             team_num = input("What is the team number? ")
             add_team = Team(team_num, team_name)
-            print(add_team.__repr__())
+            print(add_team.__repr__(), "\n")
+            menu()
             #TODO the objects are being created, now store them somewhere
             # instead of a break we'll call the next set of functions
         elif menu_choice == 'p':
