@@ -39,15 +39,20 @@ def menu_input():
             update_player()
         elif menu_choice == 's':
             print("Let's play some pool!")
+        elif menu_choice == 'x':
+            print("Exiting...")
+            exit()
         else:
             print("No valid selection given, please try again.")
-    print("Exiting...")
 
 def add_team():
     print("Let's add a new team!")
     team_name = input("Enter the team name here: ")
     team_num = input("Enter the team number here: ")
     print("Comitting data to database... ")
+    teams[team_name] = team_name, team_num
+    with open('teams.json', 'w') as teams_json:
+        json.dump(teams, teams_json)
 
 def add_player():
     print("Let's add some players!")
@@ -56,6 +61,8 @@ def add_player():
     player_team = input("Enter the team number for this player: ")
     print("Commiting data to database... ")
     players[player_name] = player_name, skill_level, player_team
+    with open('players.json', 'w') as players_json:
+        json.dump(players, players_json)
 
 def remove_player():
     remove_player_name = input("Which player should be removed? ")
@@ -76,4 +83,8 @@ def update_player():
 
 players = {}
 teams = {}
+with open('players.json') as players_json:
+    players = json.load(players_json)
+with open('teams.json') as teams_json:
+    teams = json.load(teams_json)
 start()
