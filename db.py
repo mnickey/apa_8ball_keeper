@@ -1,4 +1,5 @@
 import os
+import json
 
 class db:
     def json_check():
@@ -14,8 +15,3 @@ class db:
                 players = json.load(players_json)
         if os.path.exists('season.json') == False:
             s = open('season.json', 'w+')
-
-    def archive_check():
-        archives = os.path.dirname('Archives')
-        if not os.path.exists('Archives'):
-            os.makedirs('Archives')

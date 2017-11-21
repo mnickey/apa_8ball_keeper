@@ -1,16 +1,30 @@
 import json
-from db import db
 import os
+from db import db
+from seasons import seasons
 
 def start():
     print_header()
     db.json_check()
-    db.archive_check()
+    seasons.archive_check()
     menu()
     menu_input()
 
 
 def print_header():
+    print("""
+    ___________________________________
+                                    ___`.
+   _______________________________,'   \ `.
+   ______________________________/,d$$$/   `.
+                ,-.     ,-.       `$$$`.     `.
+   :::::======o(   )   ((2))          `.`.     `.
+                `-'     `-'             `.`.     `.
+                         ,-.              `.`.     `.
+                        ((7))               `.`.     `.
+                         `-'                  `.`.
+     `Two-ball in the corner-pocket'            `.
+""")
     print("--------------------------------------")
     print("__APA 8 Ball Team & Player Collector__")
     print("--------------------------------------")
@@ -19,19 +33,27 @@ def menu():
     print("------------------------------")
     print("|       Menu Options         |")
     print("------------------------------")
+    print("Start a [S]eason")
+    print("[A]rchive a Season")
     print("Add a [T]eam")
     print("Add a [P]layer (to a team)")
-    print("[R]emove a player from a team")
-    print("[U]date a players skill level")
-    print("E[X]it")
+    print("[R]emove a Player (from a team)")
+    print("[U]date a Player Skill Level")
     print("[S]tart a Match!")
+    print("E[X]it")
 
 
 def menu_input():
     menu_choice = ''
     while menu_choice.lower() != 'x':
         menu_choice = input("Selection: ").lower()
-        if menu_choice == 't':
+        if menu_choice == 's':
+            seasons.season_start()
+            menu()
+        elif menu_choice == 'a':
+            seasons.archive_season()
+            menu()
+        elif menu_choice == 't':
             add_team()
             menu()
         elif menu_choice == 'p':
