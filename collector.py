@@ -1,7 +1,11 @@
 import json
+from db import db
+import os
 
 def start():
     print_header()
+    db.json_check()
+    db.archive_check()
     menu()
     menu_input()
 
@@ -83,8 +87,4 @@ def update_player():
 
 players = {}
 teams = {}
-with open('players.json') as players_json:
-    players = json.load(players_json)
-with open('teams.json') as teams_json:
-    teams = json.load(teams_json)
 start()
