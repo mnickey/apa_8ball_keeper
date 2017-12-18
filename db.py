@@ -1,23 +1,29 @@
-import os
+import os.path
 import json
 
 class db:
     def json_check():
-## CHECK FOR TEAMS.JSON FILE, CREATE IT IF IT DOESN'T EXIST, AND OPEN THE JSON FILE
         if os.path.exists('teams.json') == False:
-            teams = open('teams.json', 'w+') as teams_json
+            teams = open('teams.json', 'w')
         else:
-            with open('teams.json') as teams_json:
-                teams = json.load(teams_json)
-## CHECK FOR PLAYERS.JSON FILE, CREATE IT IF IT DOESN'T EXIST, AND OPEN THE JSON FILE
+            with open('teams.json', 'r') as teams_json:
+                try:
+                    teams = json.load(teams_json)
+                except ValueError:
+                    teams = {}
         if os.path.exists('players.json') == False:
-            players = open('players.json', 'w+') as players_json
+            players = open('players.json', 'w')
         else:
-            with open('players.json') as players_json:
-                players = json.load(players_json)
-## CHECK FOR SEASONS.JSON FILE, CREATE IT IF IT DOESN'T EXIST, AND OPEN THE JSON FILE
+            with open('players.json', 'r') as players_json:
+                try:
+                    players = json.load(players_json)
+                except ValueError:
+                    players = {}
         if os.path.exists('season.json') == False:
-            season = open('season.json', 'w+') as season_json
+            season = open('season.json', 'w')
         else:
-            with open('seasons.json') as season_json:
-                season = json.load(season_json)
+            with open('season.json', 'r') as season_json:
+                try:
+                    season = json.load(season_json)
+                except ValueError:
+                    season = {}

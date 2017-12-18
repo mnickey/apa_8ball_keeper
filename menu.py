@@ -1,8 +1,8 @@
 import json
-import os
+import os.path
 from db import db
 from seasons import seasons
-from players import players
+from players import tandp
 
 def start():
     print_header()
@@ -55,16 +55,16 @@ def menu_input():
             seasons.archive_season()
             menu()
         elif menu_choice == 't':
-            plaerys.add_team()
+            tandp.add_team()
             menu()
         elif menu_choice == 'p':
-            players.add_player()
+            tandp.add_player()
             menu()
         elif menu_choice == 'r':
-            players.remove_player()
+            tandp.remove_player()
             menu()
         elif menu_choice == 'u':
-            players.update_player()
+            tandp.update_player()
             menu()
         elif menu_choice == 's':
             print("Let's play some pool!")
@@ -74,6 +74,4 @@ def menu_input():
         else:
             print("No valid selection given, please try again.")
 
-players = {}
-teams = {}
 start()
