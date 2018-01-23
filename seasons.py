@@ -16,5 +16,5 @@ class seasons:
 
     def archive_season():
         season_to_archive = input("What season should we archive? i.e.'Fall2017' > ")
-        shutil.copytree(season_to_archive, Archives)
+        shutil.copytree(season_to_archive, archives)
         print("Moving ", season_to_archive, "to Archvies")

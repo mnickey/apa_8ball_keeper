@@ -3,6 +3,9 @@ import os.path
 from db import db
 from seasons import seasons
 from players import tandp
+from match import scorecard_banner
+from match import scorecard_positions
+from match import scorecard_form
 
 def start():
     print_header()
@@ -68,6 +71,9 @@ def menu_input():
             menu()
         elif menu_choice == 's':
             print("Let's play some pool!")
+            scorecard_banner()
+            scorecard_positions()
+            scorecard_form()
         elif menu_choice == 'x':
             print("Exiting...")
             exit()
