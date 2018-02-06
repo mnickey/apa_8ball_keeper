@@ -1,1 +1,1 @@
-# apa_8ball_keeper
+# APA 8-ball Scoresheet and Team/Player Database
